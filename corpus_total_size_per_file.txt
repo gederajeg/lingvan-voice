@@ -1,0 +1,16 @@
+corpus_id	total_tokens
+ind_mixed_2012_1M	15030778
+ind_news_2008_300K	5841467
+ind_news_2009_300K	5835099
+ind_news_2010_300K	5840876
+ind_news_2011_300K	5819573
+ind_news_2012_300K	5845795
+ind_newscrawl_2011_1M	16299057
+ind_newscrawl_2012_1M	16822496
+ind_newscrawl_2015_300K	4909696
+ind_newscrawl_2016_1M	15702910
+ind_web_2011_300K	4461681
+ind_web_2012_1M	15820113
+ind_wikipedia_2016_1M	16505634
+ind-id_web_2013_1M	16358330
+ind-id_web_2015_3M	49717553
