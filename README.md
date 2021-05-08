@@ -1,7 +1,7 @@
 Corpus linguistic and experimental studies on meaning-preserving
 hypothesis in Indonesian voice alternation
 ================
-[I Made
+*by* [I Made
 Rajeg](https://udayananetworking.unud.ac.id/lecturer/1817-i-made-rajeg)
 <a itemprop="sameAs" content="https://orcid.org/0000-0001-8989-0203" href="https://orcid.org/0000-0001-8989-0203" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>,
 [Gede Primahadi Wijaya
