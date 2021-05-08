@@ -29,8 +29,11 @@ Linguistics):
 -   to be filled with the citation of the paper to appear in
     [*Linguistics
     Vanguard*](https://www.degruyter.com/journal/key/LINGVAN/html)
--   to be filled with citation of the data and code repo in Figshare and
-    OSF
+
+-   Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021.
+    Supplementary materials for “Corpus linguistic and experimental
+    studies on meaning-preserving hypothesis in Indonesian voice
+    alternation.” OSF. [osf.io/qf38h](https://osf.io/qf38h/).
 
 # Preface
 
@@ -44,7 +47,7 @@ Linguistics):
     2020a](#ref-rra_2020)). The paper has also been presented in the
     UCREL Corpus Research Seminar series organised by the Lancaster
     University, UK ([Rajeg, Rajeg & Arka
-    2020b](#ref-rajeg_usage-based_2020))
+    2020b](#ref-rajeg_usage-based_2020)).
 
 # References
 
