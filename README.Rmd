@@ -30,3 +30,9 @@ Please cite this repository as follows (in Unified Style Sheet for Linguistics):
 - to be filled with citation of the data and code repo in Figshare and OSF
 
 # Preface
+
+- Repo for dataset, R Notebook containing codes for quantitative analyses, and the plot files
+
+- The topic of this study continues our previous works on the interaction of (non-)metaphoric meanings and Indonesian voice morphologies using different base words [@rajeg_pemahaman_2019; @rra_2020]. The paper has also been presented in the UCREL Corpus Research Seminar series organised by the Lancaster University, UK [@rajeg_usage-based_2020].
+
+# References

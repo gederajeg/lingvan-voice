@@ -33,3 +33,53 @@ Linguistics):
     OSF
 
 # Preface
+
+-   Repo for dataset, R Notebook containing codes for quantitative
+    analyses, and the plot files
+
+-   The topic of this study continues our previous works on the
+    interaction of (non-)metaphoric meanings and Indonesian voice
+    morphologies using different base words ([Rajeg & Rajeg
+    2019](#ref-rajeg_pemahaman_2019); [Rajeg, Rajeg & Arka
+    2020a](#ref-rra_2020)). The paper has also been presented in the
+    UCREL Corpus Research Seminar series organised by the Lancaster
+    University, UK ([Rajeg, Rajeg & Arka
+    2020b](#ref-rajeg_usage-based_2020))
+
+# References
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-rajeg_pemahaman_2019" class="csl-entry">
+
+Rajeg, Gede Primahadi Wijaya & I Made Rajeg. 2019. Pemahaman kuantitatif
+dasar dan penerapannya dalam mengkaji keterkaitan antara bentuk dan
+makna. *Linguistik Indonesia* 37(1). 13–31.
+doi:[10.26499/li.v37i1.87](https://doi.org/10.26499/li.v37i1.87).
+<http://ojs.linguistik-indonesia.org/index.php/linguistik_indonesia/article/view/87/83>.
+
+</div>
+
+<div id="ref-rra_2020" class="csl-entry">
+
+Rajeg, Gede Primahadi Wijaya, I Made Rajeg & I Wayan Arka. 2020a.
+Corpus-based approach meets LFG: The puzzling case of voice alternations
+of *Kena*-verbs in Indonesian. In Miriam Butt & Ida Toivonen (eds.),
+*Proceedings of the LFG’20 conference, on-line*, 307–327. Stanford, CA:
+CSLI Publications.
+<http://cslipublications.stanford.edu/LFG/2020/lfg2020-rra.pdf>.
+
+</div>
+
+<div id="ref-rajeg_usage-based_2020" class="csl-entry">
+
+Rajeg, Gede Primahadi Wijaya, I Made Rajeg & I Wayan Arka. 2020b.
+Usage-based perspective on the meaning-preserving hypothesis in voice
+alternation: Corpus linguistic and experimental studies in Indonesian.
+Paper. Paper presented at the UCREL Corpus Research Seminar, Lancaster
+University, UK (Online).
+doi:[10.6084/m9.figshare.13283918.v1](https://doi.org/10.6084/m9.figshare.13283918.v1).
+
+</div>
+
+</div>
