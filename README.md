@@ -37,8 +37,11 @@ Linguistics):
 
 # Preface
 
--   Repo for dataset, R Notebook containing codes for quantitative
-    analyses, and the plot files
+-   Repository for data sets, [R
+    Notebook](https://github.com/gederajeg/lingvan-voice/blob/main/imr_gpwr_wa_lingvang_revision_codes.Rmd)
+    with codes for the quantitative analyses & visualisations, and the
+    [plot
+    files](https://github.com/gederajeg/lingvan-voice/tree/main/figs)
 
 -   The topic of this study continues our previous works on the
     interaction of (non-)metaphoric meanings and Indonesian voice
