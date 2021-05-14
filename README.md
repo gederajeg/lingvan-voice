@@ -1,5 +1,5 @@
-Corpus linguistic and experimental studies on meaning-preserving
-hypothesis in Indonesian voice alternation
+Supplementary materials for *Corpus linguistic and experimental studies
+on meaning-preserving hypothesis in Indonesian voice alternation*
 ================
 *by* [I Made
 Rajeg](https://udayananetworking.unud.ac.id/lecturer/1817-i-made-rajeg)
