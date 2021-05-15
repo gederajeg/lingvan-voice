@@ -24,7 +24,8 @@ License</a>.
 # How to cite this repository
 
 Please cite this repository as follows (in Unified Style Sheet for
-Linguistics):
+Linguistics) ([Rajeg, Rajeg & Arka
+2021](#ref-rajeg_supplementary_2021)):
 
 -   to be filled with the citation of the paper to appear in
     [*Linguistics
@@ -33,7 +34,9 @@ Linguistics):
 -   Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021.
     Supplementary materials for “Corpus linguistic and experimental
     studies on meaning-preserving hypothesis in Indonesian voice
-    alternation.” OSF. [osf.io/qf38h](https://osf.io/qf38h/).
+    alternation.” Open Science Framework. doi:
+    [10.17605/OSF.IO/QF38H](https://doi.org/10.17605/OSF.IO/QF38H).
+    [osf.io/qf38h](https://osf.io/qf38h/).
 
 # Preface
 
@@ -42,6 +45,17 @@ Linguistics):
     with codes for the quantitative analyses & visualisations, and the
     [plot
     files](https://github.com/gederajeg/lingvan-voice/tree/main/figs)
+
+-   The required R packages used in the study are as follows:
+    [tidyverse](https://www.tidyverse.org/) (heavily used in the codes)
+    ([Wickham et al. 2019](#ref-wickham_tidy_2019)),
+    [broom](https://broom.tidymodels.org/) ([Robinson, Hayes & Couch
+    2021](#ref-robinson_broom_2021)), and
+    [vcd](https://cran.r-project.org/web/packages/vcd/index.html) (for
+    generating the association plots and computing the effect sizes
+    \[i.e., the Cramér’s *V* values\]) ([Meyer, Zeileis & Hornik
+    2020](#ref-meyer_vcd_2020); [Zeileis, Meyer & Hornik
+    2007](#ref-zeileis_residual_2007))
 
 -   The topic of this study continues our previous works on the
     interaction of (non-)metaphoric meanings and Indonesian voice
@@ -52,6 +66,13 @@ Linguistics):
 # References
 
 <div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-meyer_vcd_2020" class="csl-entry">
+
+Meyer, David, Achim Zeileis & Kurt Hornik. 2020. *Vcd: Visualizing
+categorical data*.
+
+</div>
 
 <div id="ref-rajeg_pemahaman_2019" class="csl-entry">
 
@@ -71,6 +92,43 @@ of *Kena*-verbs in Indonesian. In Miriam Butt & Ida Toivonen (eds.),
 *Proceedings of the LFG’20 conference, on-line*, 307–327. Stanford, CA:
 CSLI Publications.
 <http://cslipublications.stanford.edu/LFG/2020/lfg2020-rra.pdf>.
+
+</div>
+
+<div id="ref-rajeg_supplementary_2021" class="csl-entry">
+
+Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021.
+Supplementary materials for "Corpus linguistic and experimental studies
+on meaning-preserving hypothesis in Indonesian voice alternation". Open
+Science Framework.
+doi:[10.17605/OSF.IO/QF38H](https://doi.org/10.17605/OSF.IO/QF38H).
+<https://osf.io/qf38h/>.
+
+</div>
+
+<div id="ref-robinson_broom_2021" class="csl-entry">
+
+Robinson, David, Alex Hayes & Simon Couch. 2021. *Broom: Convert
+statistical objects into tidy tibbles*.
+<https://CRAN.R-project.org/package=broom>.
+
+</div>
+
+<div id="ref-wickham_tidy_2019" class="csl-entry">
+
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
+D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
+Welcome to the <span class="nocase">tidyverse</span>. *Journal of Open
+Source Software* 4(43). 1686.
+doi:[10.21105/joss.01686](https://doi.org/10.21105/joss.01686).
+
+</div>
+
+<div id="ref-zeileis_residual_2007" class="csl-entry">
+
+Zeileis, Achim, David Meyer & Kurt Hornik. 2007. Residual-based shadings
+for visualizing (conditional) independence. *Journal of Computational
+and Graphical Statistics* 16(3). 507–525.
 
 </div>
 

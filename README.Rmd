@@ -24,15 +24,17 @@ knitr::opts_chunk$set(
 
 # How to cite this repository
 
-Please cite this repository as follows (in Unified Style Sheet for Linguistics):
+Please cite this repository as follows (in Unified Style Sheet for Linguistics) [@rajeg_supplementary_2021]:
 
 - to be filled with the citation of the paper to appear in [*Linguistics Vanguard*](https://www.degruyter.com/journal/key/LINGVAN/html)
 
-- Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021. Supplementary materials for “Corpus linguistic and experimental studies on meaning-preserving hypothesis in Indonesian voice alternation.” OSF. [osf.io/qf38h](https://osf.io/qf38h/).
+- Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021. Supplementary materials for “Corpus linguistic and experimental studies on meaning-preserving hypothesis in Indonesian voice alternation.” Open Science Framework. doi: [10.17605/OSF.IO/QF38H](https://doi.org/10.17605/OSF.IO/QF38H). [osf.io/qf38h](https://osf.io/qf38h/).
 
 # Preface
 
 - Repository for data sets, [R Notebook](https://github.com/gederajeg/lingvan-voice/blob/main/imr_gpwr_wa_lingvang_revision_codes.Rmd) with codes for the quantitative analyses & visualisations, and the [plot files](https://github.com/gederajeg/lingvan-voice/tree/main/figs)
+
+- The required R packages used in the study are as follows: [tidyverse](https://www.tidyverse.org/) (heavily used in the codes) [@wickham_tidy_2019], [broom](https://broom.tidymodels.org/) [@robinson_broom_2021], and [vcd](https://cran.r-project.org/web/packages/vcd/index.html) (for generating the association plots and computing the effect sizes [i.e., the Cramér's *V* values]) [@meyer_vcd_2020; @zeileis_residual_2007]
 
 - The topic of this study continues our previous works on the interaction of (non-)metaphoric meanings and Indonesian voice morphologies using different base words [@rajeg_pemahaman_2019; @rra_2020].
 
