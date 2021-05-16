@@ -1,6 +1,8 @@
 #' ---
 #' title: "R Notebook for *Corpus linguistic and experimental studies on meaning-preserving hypothesis in Indonesian voice alternation*"
-#' author: '[I Made Rajeg](https://udayananetworking.unud.ac.id/lecturer/1817-i-made-rajeg) <a itemprop="sameAs" content="https://orcid.org/0000-0001-8989-0203" href="https://orcid.org/0000-0001-8989-0203" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>, [Gede Primahadi Wijaya Rajeg](https://udayananetworking.unud.ac.id/lecturer/880-gede-primahadi-wijaya-rajeg) <a itemprop="sameAs" content="https://orcid.org/0000-0002-2047-8621" href="https://orcid.org/0000-0002-2047-8621" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>, [I Wayan Arka](https://researchers.anu.edu.au/researchers/arka-iww) <a itemprop="sameAs" content="https://orcid.org/0000-0002-2819-6186" href="https://orcid.org/0000-0002-2819-6186" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>'
+#' author: 
+#' - name: '[I Made Rajeg](https://udayananetworking.unud.ac.id/lecturer/1817-i-made-rajeg) <a itemprop="sameAs" content="https://orcid.org/0000-0001-8989-0203" href="https://orcid.org/0000-0001-8989-0203" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>^1^, [Gede Primahadi Wijaya Rajeg](https://udayananetworking.unud.ac.id/lecturer/880-gede-primahadi-wijaya-rajeg) <a itemprop="sameAs" content="https://orcid.org/0000-0002-2047-8621" href="https://orcid.org/0000-0002-2047-8621" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>^1^, [I Wayan Arka](https://researchers.anu.edu.au/researchers/arka-iww) <a itemprop="sameAs" content="https://orcid.org/0000-0002-2819-6186" href="https://orcid.org/0000-0002-2819-6186" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>^2,^ ^1^'
+#'   affiliation: "Universitas Udayana ^1^, Australian National University ^2^"
 #' output:
 #'   html_notebook:
 #'     code_folding: show
@@ -23,7 +25,7 @@
 #' csl: unified_stylesheet_linguistics.csl
 #' ---
 #' 
-## ----setup, include = FALSE, message = FALSE, warning = FALSE, echo = FALSE----------------------------------
+## ----setup, include = FALSE, message = FALSE, warning = FALSE, echo = FALSE---------
 knitr::opts_chunk$set(fig.width = 7,
                       fig.asp = 0.618,
                       fig.retina = 2,
@@ -39,10 +41,23 @@ library(vcd)
 
 #' 
 #' 
+#' <!-- badges: start -->
+#' <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This R Notebook and the analyses codes are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+#' <!-- badges: end -->
+#' 
+#' # How to cite this R notebook {-}
+#' 
+#' Please cite this notebook as follows (in Unified Style Sheet for Linguistics) [@rajeg_supplementary_2021]:
+#' 
+#' - to be filled with the citation of the paper to appear in [*Linguistics Vanguard*](https://www.degruyter.com/journal/key/LINGVAN/html)
+#' 
+#' - Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021. R Notebook for “Corpus linguistic and experimental studies on meaning-preserving hypothesis in Indonesian voice alternation.” Open Science Framework. doi: [10.17605/OSF.IO/QF38H](https://doi.org/10.17605/OSF.IO/QF38H). url: [https://osf.io/qf38h/](https://osf.io/qf38h/).
+#' 
+#' 
 #' # Introduction {#intro}
 #' 
 #' 
-## ----load-elicitation-data, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE--------------------
+## ----load-elicitation-data, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE----
 corpsize <- readr::read_tsv('corpus_total_size_per_file.txt')
 corpsizeused <- subset(corpsize, grepl("_newscrawl_", corpus_id))
 
@@ -99,10 +114,14 @@ mengundurkan_exp <- readRDS("mengundurkan_exp.rds")
 mengundurkan_exp1 <- mengundurkan_exp %>% 
   filter(!sense %in% c("duplicate", "IRRELEVANT", "unclear"))
 
-diundurkan_exp <- readRDS("diundurkan_exp.rds")
-diundurkan_exp1 <- diundurkan_exp %>% 
-  filter(!sense %in% c("duplicate", "IRRELEVANT", "unclear")) %>% 
-  slice_sample(n = 100)
+# diundurkan_exp <- readRDS("diundurkan_exp.rds")
+# diundurkan_exp1 <- diundurkan_exp %>% 
+#   filter(!sense %in% c("duplicate", "IRRELEVANT", "unclear")) %>% 
+#   slice_sample(n = 100)
+
+# load only experimental data for *diundurkan* that has been randomly sampled to 100 tokens
+diundurkan_exp1 <- readRDS("diundurkan_exp_100_sample.rds")
+
 
 undurkan_exp <- readRDS("undurkan_exp.rds")
 undurkan_exp1 <- undurkan_exp %>% 
@@ -200,9 +219,9 @@ diundur_exp1_sense_count <- diundur_exp1 %>%
 #' 
 #' # Data and methodology {#datamethod}
 #' 
-#' [[Table \@ref(tab:corpus-data)](#corpus-data)]). 
+#' [[Table \@ref(tab:table1-corpus-data)](#table1-corpus-data)]). 
 #' 
-## ----corpus-data, message = FALSE, warning=FALSE-------------------------------------------------------------
+## ----table1-corpus-data, message = FALSE, warning=FALSE-----------------------------
 ## TABLE 1 ========
 corpsizeused %>% 
   rename(Filenames = corpus_id,
@@ -211,9 +230,9 @@ corpsizeused %>%
   knitr::kable(caption = "Corpus files used and their sizes", row.names = TRUE)
 
 #' 
-#' [Table \@ref(tab:lexemes-database-count)](#lexemes-database-count). 
+#' [Table \@ref(tab:table2-lexemes-database-count)](#table2-lexemes-database-count). 
 #' 
-## ----lexemes-database-count, message = FALSE, warning = FALSE------------------------------------------------
+## ----table2-lexemes-database-count, message = FALSE, warning = FALSE----------------
 ## TABLE 2 ========
 lexemes_all <- readr::read_tsv("lexemes_all_database.txt")
 lexemes_all_database <- lexemes_all %>% 
@@ -236,31 +255,33 @@ knitr::kable(format(addmargins(lexemes_all_database), big.mark = ","), caption =
 #' 
 #' # Analysis for *majukan*, *memajukan* and *dimajukan* {#majukan-all}
 #' 
-## ----majukan-voice-and-sense-categorising-new----------------------------------------------------------------
+#' ## Corpus data for *majukan*
+#' 
+## ----majukan-voice-and-sense-categorising-new---------------------------------------
 # read the concordance data
 majukan <- readRDS("majukan_BARE_all_data.rds") %>% 
   mutate(node = tolower(node))
 
 #' 
-## ----majukan-voice-count-new---------------------------------------------------------------------------------
+## ----majukan-voice-count-new--------------------------------------------------------
 majukan_voice_tb <- majukan %>% 
   filter(str_detect(sense, "^irrel", negate = TRUE)) %>% 
   count(voice, sort = TRUE) %>% 
   mutate(perc = round((n/sum(n) * 100), 2))
 
 #' 
-## ----majukan_phys_motion_examples----------------------------------------------------------------------------
+## ----majukan_phys_motion_examples---------------------------------------------------
 majukan_phys_motion_df <- subset(majukan, sense=="phys_motion")
 
 #' 
-## ----memajukan-load-data-------------------------------------------------------------------------------------
+## ----memajukan-load-data------------------------------------------------------------
 memajukan <- readRDS("majukan_AV_sample_data.rds") %>% 
   filter(senses != "duplicate") %>% 
   rename(sense = senses) %>% 
   mutate(node = tolower(node))
 
 #' 
-## ----dimajukan-load-data-------------------------------------------------------------------------------------
+## ----dimajukan-load-data------------------------------------------------------------
 dimajukan <- readRDS("majukan_PASS_sample_data.rds") %>% 
   filter(!sense %in% c("duplicate", "phys_motion")) %>% 
   mutate(node = tolower(node))
@@ -268,7 +289,7 @@ dimajukan_physmotion <- readRDS("majukan_PASS_sample_data.rds") %>%
   filter(sense %in% c("phys_motion"))
 
 #' 
-## ----majukan-combined-voice----------------------------------------------------------------------------------
+## ----majukan-combined-voice---------------------------------------------------------
 memajukan1 <- memajukan %>% 
   select(node, sense) %>% 
   mutate(voice = "av")
@@ -288,9 +309,9 @@ majukan_voice_count <- table(majukan_combined$voice)
 majukan_combined_goodness_of_fit <- chisq.test(majukan_voice_count)
 
 #' 
-#' Codes to generate [Figure \@ref(fig:majukan-voice-plot)](#majukan-voice-plot).
+#' Codes to generate [Figure \@ref(fig:figure1-majukan-voice-plot)](#figure1-majukan-voice-plot).
 #' 
-## ----majukan-voice-plot, fig.cap="Distribution of voice for the metaphoric usages of the base *majukan*"-----
+## ----figure1-majukan-voice-plot, fig.cap="Distribution of voice for the metaphoric usages of the base *majukan*"----
 # saving to computer
 ## FIGURE 1 ========
 fig1 <- majukan_voice_count %>% 
@@ -328,7 +349,7 @@ majukan_voice_count %>%
 #' 
 #' Codes for *Chi-square Test* of Independence. 
 #' 
-## ----majukan-combined-av-pass-chisquare----------------------------------------------------------------------
+## ----majukan-combined-av-pass-chisquare---------------------------------------------
 majukan_combined_av_pass <- filter(majukan_combined, voice != "uv")
 majukan_combined_av_pass_chisq0 <- majukan_combined_av_pass %>% 
   count(sense, voice) %>% 
@@ -345,9 +366,9 @@ majukan_combined_av_pass_assocstats <- majukan_combined_av_pass %>%
   vcd::assocstats()
 
 #' 
-#' Code for [Figure \@ref(fig:majukan-combined-av-pass-plot)](#majukan-combined-av-pass-plot).
+#' Code for [Figure \@ref(fig:figure2-majukan-combined-av-pass-plot)](#figure2-majukan-combined-av-pass-plot).
 #' 
-## ----majukan-combined-av-pass-plot, fig.cap="Distribution of metaphoric senses of *majukan* across AV and PASS"----
+## ----figure2-majukan-combined-av-pass-plot, fig.cap="Distribution of metaphoric senses of *majukan* across AV and PASS"----
 majukan_combined_av_pass_count <- majukan_combined_av_pass %>% 
   count(voice, sense) %>% 
   group_by(voice) %>% 
@@ -397,10 +418,10 @@ majukan_combined_av_pass_count %>%
 #' 
 #' Such asymmetric distribution effect of metaphoric senses across voice for *majukan* is statistically highly significant (*X*^2^=`r round(majukan_combined_av_pass_chisq$statistic, 2)`; *df*=`r majukan_combined_av_pass_chisq$parameter`; *p*~two-tailed~=`r if(majukan_combined_av_pass_chisq$p.value < 0.001) " < 0.001"`) with a highly strong effect size (Cramér's *V*=`r round(majukan_combined_av_pass_assocstats$cramer, 3)`)^[The interpretation of the effect size follows that given in Levshina [-@levshina_how_2015, 209]: 0.1 $\leq$ *V* $\lt$ 0.3 indicates small effect; 0.3 $\leq$ *V* $\lt$ 0.5 indicates moderate effect; *V* $\gt$ 0.5 indicates large or strong effect.]. 
 #' 
-#' Association plot ([Figure \@ref(fig:majukan-combined-assocplot)](#majukan-combined-assocplot)).
+#' Association plot ([Figure \@ref(fig:figure3-majukan-combined-assocplot)](#figure3-majukan-combined-assocplot)).
 #' 
 #' 
-## ----majukan-combined-assocplot, fig.cap="Association plot between metaphoric senses of *majukan* with AV and PASS.", fig.asp = .8----
+## ----figure3-majukan-combined-assocplot, fig.cap="Association plot between metaphoric senses of *majukan* with AV and PASS.", fig.asp = .8----
 ## FIGURE 3 ===========
 # Uncomment (i.e. delete the hashtags in) from the following three lines to activate the code to save the plot in computer
 # png("figs/figure-3.jpeg", width = 7, height = 6, units = "in", res = 600)
@@ -413,7 +434,7 @@ vcd::assoc(voice~sense, mutate(majukan_combined_av_pass, voice = toupper(voice))
 #' 
 #' Codes for experimental data for *majukan*.
 #' 
-## ----majukan-exp-meta-lit-count------------------------------------------------------------------------------
+## ----majukan-exp-meta-lit-count-----------------------------------------------------
 
 majukan_exp_meta_lit_sense <- majukan_exp1 %>% 
   count(sense, node, sort = T) %>% 
@@ -448,10 +469,10 @@ majukan_exp_met_lit_by_word <- majukan_exp_meta_lit_sense %>%
 #' In experimental data, metaphoric senses are the predominant tokens for each *majukan* (N=`r pull(filter(majukan_exp_met_lit_by_word, node=='majukan', sense_type=='met'), n)`; `r pull(filter(majukan_exp_met_lit_by_word, node=='majukan', sense_type=='met'), perc)`%), *memajukan* (N=`r pull(filter(majukan_exp_met_lit_by_word, node=='memajukan', sense_type=='met'), n)`; `r pull(filter(majukan_exp_met_lit_by_word, node=='memajukan', sense_type=='met'), perc)`%), and *dimajukan* (N=`r pull(filter(majukan_exp_met_lit_by_word, node=='dimajukan', sense_type=='met'), n)`; `r pull(filter(majukan_exp_met_lit_by_word, node=='dimajukan', sense_type=='met'), perc)`%) over their literal, physical motion sense. For *majukan*, `r majukan_exp_meta_lit_root %>% filter(sense!="phys_motion") %>% group_by(clause_type) %>% summarise(n=sum(n), .groups='drop') %>% mutate(perc = round(n/sum(n)*100, 2)) %>% filter(clause_type=='imperative') %>% pull(perc)`% (N=`r majukan_exp_meta_lit_root %>% filter(sense!="phys_motion") %>% group_by(clause_type) %>% summarise(n=sum(n), .groups='drop') %>% mutate(perc = round(n/sum(n)*100, 2)) %>% filter(clause_type=='imperative') %>% pull(n)`) of its `r pull(filter(majukan_exp_met_lit_by_word, node=='majukan', sense_type=='met'), n)` metaphoric tokens are in imperative clause, and `r majukan_exp_meta_lit_root %>% filter(sense!="phys_motion") %>% group_by(clause_type) %>% summarise(n=sum(n), .groups='drop') %>% mutate(perc = round(n/sum(n)*100, 2)) %>% filter(clause_type=='declarative') %>% pull(n)` tokens are in declarative clause, of which only `r majukan_exp1_declarative_sense_count_by_voice %>% filter(sense!='phys_motion', voice=='uv') %>% pull(n)` is in UV. The literal sense of *majukan* is significantly greater in PASS *di-* (N=`r filter(majukan_exp_met_lit_by_word, sense_type=='lit', node != "majukan", node=='dimajukan')$n`) compared to AV *meN-* (N=`r filter(majukan_exp_met_lit_by_word, sense_type=='lit', node != "majukan", node=='memajukan')$n`) (*X*^2^~goodness-of-fit~=`r chisq.test(filter(majukan_exp_met_lit_by_word, sense_type=='lit', node != "majukan")$n)$statistic`; *df*=`r chisq.test(filter(majukan_exp_met_lit_by_word, sense_type=='lit', node != "majukan")$n)$parameter`; *p*~two-tailed~`r if(chisq.test(filter(majukan_exp_met_lit_by_word, sense_type=='lit', node != "majukan")$n)$p.value < 0.05) paste(" < 0.05") else if(chisq.test(filter(majukan_exp_met_lit_by_word, sense_type=='lit', node != "majukan")$n)$p.value < 0.01) paste(" < 0.01") else if(chisq.test(filter(majukan_exp_met_lit_by_word, sense_type=='lit', node != "majukan")$n)$p.value < 0.001) paste(" < 0.001")`).
 #' 
 #' 
-#' [Figure \@ref(fig:majukan-exp-metaphoric-lit-sense-plot)](#majukan-exp-metaphoric-lit-sense-plot) visualises the distribution of metaphoric and literal senses across voice for EXPERIMENTAL DATA.
+#' [Figure \@ref(fig:figure4-majukan-exp-metaphoric-lit-sense-plot)](#figure4-majukan-exp-metaphoric-lit-sense-plot) visualises the distribution of metaphoric and literal senses across voice for EXPERIMENTAL DATA.
 #' 
 #' 
-## ----majukan-exp-metaphoric-lit-sense-plot, fig.cap="Distribution of metaphoric and literal senses of *majukan* in AV and PASS (sentence-production)."----
+## ----figure4-majukan-exp-metaphoric-lit-sense-plot, fig.cap="Distribution of metaphoric and literal senses of *majukan* in AV and PASS (sentence-production)."----
 
 majukan_exp_sense_av_pass <- bind_rows(memajukan_exp1_sense_count,
                                        dimajukan_exp1_sense_count,
@@ -505,7 +526,7 @@ fig4
 #' There is converging trend between the metaphoric senses in the corpus and experimental data, with the exception of the absense of 'proposing' sense in experimental data.
 #' 
 #' 
-## ----majukan-exp-met-lit-combined-assocplot, fig.cap="Association plot between metaphoric and literal senses of *majukan* in AV and PASS from sentence-production experiment.", fig.asp=.85----
+## ----figure5-majukan-exp-met-lit-combined-assocplot, fig.cap="Association plot between metaphoric and literal senses of *majukan* in AV and PASS from sentence-production experiment.", fig.asp=.85----
 ## FIGURE 5 ===========
 names(dimnames(majukan_exp_sense_av_pass_chisq$observed)) <- c("sense", "voice")
 # Uncomment (i.e. delete the hashtags in) the following three lines to activate the code to save the plot in computer
@@ -518,7 +539,9 @@ vcd::assoc(majukan_exp_sense_av_pass_chisq$observed[c(1, 3, 2), ], shade = TRUE,
 #' 
 #' # Analysis for *mundurkan*, *memundurkan*, *dimundurkan* {#mundurkan-all}
 #' 
-## ----mundurkan-load-sample, message = FALSE, warning = FALSE-------------------------------------------------
+#' ## Corpus data for *mundurkan*
+#' 
+## ----mundurkan-load-sample, message = FALSE, warning = FALSE------------------------
 mundurkan <- as_tibble(readRDS("mundurkan_BARE_all_data.rds")) %>% 
   filter(sense != "duplicate")
 
@@ -530,7 +553,7 @@ memundurkan <- as_tibble(readRDS("mundurkan_AV_all_data.rds")) %>%
 dimundurkan <- as_tibble(readRDS("mundurkan_PASS_all_data.rds"))
 
 #' 
-## ----mundurkan-met-lit-sense-count---------------------------------------------------------------------------
+## ----mundurkan-met-lit-sense-count--------------------------------------------------
 mundurkan_met_lit_sense <- mundurkan %>% 
   count(sense, voice) %>% 
   mutate(node = "mundurkan") %>% 
@@ -557,7 +580,7 @@ mundurkan_met_lit_by_word <- mundurkan_met_lit_sense %>%
 
 #' 
 #' 
-## ----mundurkan-metaphoric-lit-sense-count-1------------------------------------------------------------------
+## ----mundurkan-metaphoric-lit-sense-count-1-----------------------------------------
 mundurkan_met_lit <- mundurkan %>% 
   filter(voice == "av") %>% 
   select(node, sense, voice) %>% 
@@ -594,7 +617,7 @@ mundurkan_met_lit_all_count_by_voice <- mundurkan_met_lit_all %>%
   mutate(perc=n/sum(n)*100)
 
 #' 
-## ----mundurkan-met-lit-stats, warning = FALSE, message = FALSE-----------------------------------------------
+## ----mundurkan-met-lit-stats, warning = FALSE, message = FALSE----------------------
 mundurkan_met_lit_all_count_by_voice_mtx <- mundurkan_met_lit_all_count_by_voice %>% 
   ungroup() %>% 
   select(-perc) %>% 
@@ -611,9 +634,9 @@ mundurkan_met_lit_all_fye <- fisher.test(mundurkan_met_lit_all_count_by_voice_mt
 mundurkan_met_lit_assocstats <- assocstats(mundurkan_met_lit_all_count_by_voice_mtx)
 
 #' 
-#' Codes for [Figure \@ref(fig:mundurkan-met-lit-sense-plot)](#mundurkan-met-lit-sense-plot)
+#' Codes for [Figure \@ref(fig:figure6-mundurkan-met-lit-sense-plot)](#figure6-mundurkan-met-lit-sense-plot)
 #' 
-## ----mundurkan-met-lit-sense-plot, fig.cap="Distribution of metaphoric and literal senses of *mundurkan* across AV and PASS"----
+## ----figure6-mundurkan-met-lit-sense-plot, fig.cap="Distribution of metaphoric and literal senses of *mundurkan* across AV and PASS"----
 
 # PERCENTAGES-----
 ## FIGURE 6 ===========
@@ -648,7 +671,7 @@ fig6
 #' 
 #' 
 #' 
-## ----mundurkan-met-lit-assocplot, fig.cap="Association plot between metaphoric and literal senses of *mundurkan* with AV and PASS.", fig.asp=.8----
+## ----figure7-mundurkan-met-lit-assocplot, fig.cap="Association plot between metaphoric and literal senses of *mundurkan* with AV and PASS.", fig.asp=.8----
 ## FIGURE 7 ============
 mtx_tb <- mundurkan_met_lit_all_count_by_voice_mtx
 rownames(mtx_tb)[c(1, 3)] <- c("postpone", "change one's mind")
@@ -666,7 +689,7 @@ vcd::assoc(mtx_tb, shade = TRUE, gp_labels = gpar(fontsize = 7.5), legend = lege
 #' ## Experimental data for *mundurkan*
 #' 
 #' 
-## ----mundurkan-exp-meta-lit-count----------------------------------------------------------------------------
+## ----mundurkan-exp-meta-lit-count---------------------------------------------------
 mundurkan_exp_meta_lit_sense <- mundurkan_exp1 %>% 
   filter(clause_type=="declarative") %>%
   count(sense, node, sort = T) %>% mutate(perc = round(n/sum(n)*100, 2)) %>%
@@ -696,7 +719,7 @@ mundurkan_exp_met_lit_by_word <- mundurkan_exp_meta_lit_sense %>%
 #' 
 #' 
 #' 
-## ----mundurkan-exp-metaphoric-lit-sense-plot, fig.cap="Distribution of metaphoric and literal senses of *mundurkan* in AV and PASS (sentence-production)", warning=FALSE----
+## ----figure8-mundurkan-exp-metaphoric-lit-sense-plot, fig.cap="Distribution of metaphoric and literal senses of *mundurkan* in AV and PASS (sentence-production)", warning=FALSE----
 
 ## FIGURE 8 =========
 mundurkan_exp_sense_av_pass <- bind_rows(memundurkan_exp1_sense_count,
@@ -744,7 +767,7 @@ fig8
 
 #' 
 #' 
-## ----mundurkan-exp-met-lit-combined-assocplot, fig.cap="Association plot between metaphoric senses of *mundurkan* in AV and PASS from sentence-production experiment.", fig.asp=.775----
+## ----figure9-mundurkan-exp-met-lit-combined-assocplot, fig.cap="Association plot between metaphoric senses of *mundurkan* in AV and PASS from sentence-production experiment.", fig.asp=.775----
 ## FIGURE 9 ==========
 mundurkan_exp_met_lit_assocplot_tb <- mundurkan_exp_met_lit_sense_av_pass_plotdf %>% 
   arrange(sense) %>% 
@@ -764,7 +787,7 @@ vcd::assoc(mundurkan_exp_met_lit_assocplot_tb, shade = TRUE, legend = legend_res
 #' 
 #' # Analysis for *ajukan*, *mengajukan*, and *diajukan*
 #' 
-## ----aju-data-load, message = FALSE, warning = FALSE---------------------------------------------------------
+## ----aju-data-load, message = FALSE, warning = FALSE--------------------------------
 aju_root <- readRDS("aju_ROOT_all_data.rds")
 aju_root_sense_count <- count(aju_root, sense, sort = TRUE)
 aju_av <- readRDS("aju_AV_all_data.rds")
@@ -772,7 +795,7 @@ aju_av <- readRDS("aju_AV_all_data.rds")
 #' 
 #' In the corpus, the root *aju*^[The bound root *aju* appears to be a reflex of an old Austronesian form \**-a-tu* that expresses physical sense of 'forward, onwards; towards the hearer' [@blust_austronesian_2010]; see [this link](https://www.trussel2.com/ACD/acd-s_c2.htm#2170). We thank the anonymous reviewer for pointing this out to us.] occurs in total `r sum(aju_root_sense_count$n)` times: `r pull(filter(aju_root_sense_count, sense == "PROPER_NAME"), n)` of these are proper name, `r pull(filter(aju_root_sense_count, sense == "typo_mengajukan"), n)` is typo for the suffixed AV form *mengajukan*, and only the remaining `r pull(filter(aju_root_sense_count, sense == "advanced"), n)` tokens can be considered relevant. In all these relevant tokens, *aju* is used as modifier in a noun phrase meaning 'advanced' (e.g., *tim __aju__* '*advanced* team'), rather than as head-predicate that can have voice prefixes. Then, the AV form *mengaju* also occurred in the corpus, but they are all typos for *mengaku* 'to admit something' and *mengacu* 'to refer to something'. The search for the potential passive form *diaju* returned no hits in the corpus. These search results for the AV and PASS with *aju* converge with the zero results from the entry in KBBI. The conventional verbal morphological constructions for *aju* is the suffixed one with -*kan* that we used in the analyses.
 #' 
-## ----ajukan-load-sample, message = FALSE, warning = FALSE----------------------------------------------------
+## ----ajukan-load-sample, message = FALSE, warning = FALSE---------------------------
 ajukan <- tibble::as_tibble(readRDS("ajukan_BARE_sample_data.rds")) %>% 
   rename(voice = voice_type)
 ajukan_cases <- nrow(ajukan)
@@ -781,7 +804,7 @@ diajukan <- tibble::as_tibble(readRDS("ajukan_PASS_sample_data.rds"))
 
 #' 
 #' 
-## ----ajukan-voice-count--------------------------------------------------------------------------------------
+## ----ajukan-voice-count-------------------------------------------------------------
 ajukan_unclear_voice_id <- which(ajukan$voice == "blur")
 ajukan_typo_voice_id <- which(ajukan$voice == "typo_di")
 ajukan_typo_voice_df <- ajukan[ajukan_typo_voice_id, ]
@@ -794,7 +817,7 @@ ajukan_voice_tb <- ajukan %>%
 
 #' 
 #' 
-## ----ajukan-voice-plot, fig.cap="Distribution of *ajukan* in different voice."-------------------------------
+## ----figure10-ajukan-voice-plot, fig.cap="Distribution of *ajukan* in different voice."----
 ## FIGURE 10 ============
 aju_voice_count <- c(av = nrow(filter(mengajukan, subsense1 != "unclear")), 
                      pass = nrow(diajukan), 
@@ -820,7 +843,7 @@ fig10
 
 #' 
 #' 
-## ----ajukan-core-sense-statistics----------------------------------------------------------------------------
+## ----ajukan-core-sense-statistics---------------------------------------------------
 # Chi-Square goodness-of-fit test of senses for *ajukan* in AV and PASS from the corpus
 ajukan_av_pass_core_chisq <- chisq.test(aju_voice_count[names(aju_voice_count)!="uv"]) 
 
@@ -847,7 +870,7 @@ ajukan_exp_av_pass_subsense_fye <- fisher.test(ajukan_exp_av_pass_subsense_mtx)
 #' 
 #' # Analysis for *undur*, *undurkan*, *mengundurkan*, *diundurkan*
 #' 
-## ----undur-load-data, message=FALSE, warning=FALSE-----------------------------------------------------------
+## ----undur-load-data, message=FALSE, warning=FALSE----------------------------------
 # UNDUR------
 undur <- readRDS("undur_ROOT_all_data.rds") %>% 
   select(-duplicate) %>% 
@@ -892,7 +915,7 @@ diundurkan <- readRDS("undurkan_PASS_all_data.rds") %>%
 
 
 #' 
-## ----undur-undurkan-forms-count------------------------------------------------------------------------------
+## ----undur-undurkan-forms-count-----------------------------------------------------
 undur_sense_allvoice <- undur %>% 
   filter(voice == "uv") %>% 
   select(node, voice, sense) %>% 
@@ -922,7 +945,7 @@ undur_undurkan_forms_chisq <- undur_undurkan_forms_count %>%
   chisq.test()
 
 #' 
-## ----undur-undurkan-forms-plot, fig.cap="Distribution of voice for the metaphoric usages of the base *undur* and *undurkan*"----
+## ----figure11-undur-undurkan-forms-plot, fig.cap="Distribution of voice for the metaphoric usages of the base *undur* and *undurkan*"----
 # SPLIT BY BASE-----
 ## FIGURE 11 ============
 undur_undurkan_forms_count_with_base <- undur_undurkan_forms_count %>%
@@ -948,7 +971,7 @@ fig11
 
 #' 
 #' 
-## ----undur-sense-allvoice-count------------------------------------------------------------------------------
+## ----undur-sense-allvoice-count-----------------------------------------------------
 undur_sense_allvoice <- undur %>% 
   filter(voice == "uv") %>%
   select(node, voice, sense) %>% 
@@ -965,21 +988,21 @@ undur_allvoice_chisq <- chisq.test(undur_allvoice_count)
 
 #' 
 #' 
-## ----undur-postpone-sense-allvoice-chisq-goodness-of-fit-----------------------------------------------------
+## ----undur-postpone-sense-allvoice-chisq-goodness-of-fit----------------------------
 # Code to run the Chi-Square goodness-of-fit for *undur* in AV and PASS. (Section 5.4.1 in the paper)
 names(undur_sense_allvoice_count$n) <- undur_sense_allvoice_count$voice
 undur_senses_allvoice_goodness_of_fit <- chisq.test(undur_sense_allvoice_count$n[names(undur_sense_allvoice_count$n)!="uv"])
 
 #' 
 #' 
-#' [Figure \@ref(fig:undur-undurkan-forms-plot) above](#undur-undurkan-forms-plot) shows asymmetry in the frequency of occurrence of the words in certain voice morphologies. The suffixed AV *mengundurkan* (`r pull(filter(undur_undurkan_forms_count_with_base, node=='mengundurkan'), perc)`% of the total `r pull(filter(tally(undur_undurkan_forms_count_with_base, wt=n), base=='undurkan'), n)` tokens of the base *undurkan*) is much more frequent than the unsuffixed AV *mengundur* (`r pull(filter(undur_undurkan_forms_count_with_base, node=='mengundur'), perc)`% of the total `r pull(filter(tally(undur_undurkan_forms_count_with_base, wt=n), base=='undur'), n)` tokens of the base *undur*). The unsuffixed PASS *diundur* (`r pull(filter(undur_undurkan_forms_count_with_base, node=='diundur'), perc)`% of the total `r pull(filter(tally(undur_undurkan_forms_count_with_base, wt=n), base=='undur'), n)` tokens of the base *undur*) is much more frequent than the suffixed PASS *diundurkan* (`r pull(filter(undur_undurkan_forms_count_with_base, node=='diundurkan'), perc)`% of the total `r pull(filter(tally(undur_undurkan_forms_count_with_base, wt=n), base=='undurkan'), n)` tokens of the base *undurkan*). The UV form is significantly lower than expected by chance compared to other voice types for unsuffixed verbs based on the root *undur* (*X*^2^~goodness-of-fit~=`r round(undur_allvoice_chisq$statistic, 2)`; *df*=`r undur_allvoice_chisq$parameter`; *p*~two-tailed~`r if(undur_allvoice_chisq$p.value < 0.001) " < 0.001"`). For this reason, we only analysed the AV and PASS data for *undur* root (i.e. *mengundur* and *diundur*) and *undurkan* (*mengundurkan* and *diundurkan*). Similar stems are analysed in the experimental data.
+#' [Figure \@ref(fig:figure11-undur-undurkan-forms-plot) above](#figure11-undur-undurkan-forms-plot) shows asymmetry in the frequency of occurrence of the words in certain voice morphologies. The suffixed AV *mengundurkan* (`r pull(filter(undur_undurkan_forms_count_with_base, node=='mengundurkan'), perc)`% of the total `r pull(filter(tally(undur_undurkan_forms_count_with_base, wt=n), base=='undurkan'), n)` tokens of the base *undurkan*) is much more frequent than the unsuffixed AV *mengundur* (`r pull(filter(undur_undurkan_forms_count_with_base, node=='mengundur'), perc)`% of the total `r pull(filter(tally(undur_undurkan_forms_count_with_base, wt=n), base=='undur'), n)` tokens of the base *undur*). The unsuffixed PASS *diundur* (`r pull(filter(undur_undurkan_forms_count_with_base, node=='diundur'), perc)`% of the total `r pull(filter(tally(undur_undurkan_forms_count_with_base, wt=n), base=='undur'), n)` tokens of the base *undur*) is much more frequent than the suffixed PASS *diundurkan* (`r pull(filter(undur_undurkan_forms_count_with_base, node=='diundurkan'), perc)`% of the total `r pull(filter(tally(undur_undurkan_forms_count_with_base, wt=n), base=='undurkan'), n)` tokens of the base *undurkan*). The UV form is significantly lower than expected by chance compared to other voice types for unsuffixed verbs based on the root *undur* (*X*^2^~goodness-of-fit~=`r round(undur_allvoice_chisq$statistic, 2)`; *df*=`r undur_allvoice_chisq$parameter`; *p*~two-tailed~`r if(undur_allvoice_chisq$p.value < 0.001) " < 0.001"`). For this reason, we only analysed the AV and PASS data for *undur* root (i.e. *mengundur* and *diundur*) and *undurkan* (*mengundurkan* and *diundurkan*). Similar stems are analysed in the experimental data.
 #' 
 #' 
 #' ## *undur*
 #' 
 #' The root *undur* in AV *mengundur* (N=`r pull(filter(undur_sense_allvoice_count, voice=='av'), n)`), UV *undur* (N=`r pull(filter(undur_sense_allvoice_count, voice=='uv'), n)`), and PASS *diundur* (N=`r pull(filter(undur_sense_allvoice_count, voice=='pass'), n)`) all conveys the 'postpone' sense. No variation of senses found across voice. *Undur* is thus meaning-preserving in the sample since its AV and PASS alternations preserve the same meaning. However, comparing the distribution of this sense in AV and PASS suggests that 'postpone' is significantly more frequent in PASS than in AV (*X*^2^~goodness-of-fit~=`r round(undur_senses_allvoice_goodness_of_fit$statistic, 2)`; *df*=`r undur_senses_allvoice_goodness_of_fit$parameter`; *p*~two-tailed~`r if(undur_senses_allvoice_goodness_of_fit$p.value < 0.001) " < 0.001"`), simply because the token frequency of the PASS is greater.
 #' 
-## ----undur-exp-postpone-sense-allvoice-chisq-goodness-of-fit-------------------------------------------------
+## ----undur-exp-postpone-sense-allvoice-chisq-goodness-of-fit------------------------
 # code for chi-square goodness-of-fit test for the EXPERIMENTAL data of *undur* in AV and PASS (Section 5.4.1)
 undur_sense_allvoice_exp_goodness_of_fit <- chisq.test(c(pass = diundur_exp1_sense_count$n, 
                                                          av = nrow(filter(mengundur_exp1, P_lu !="INTR", sense=="temporal"))))
@@ -1006,8 +1029,9 @@ undur_sense_allvoice_exp_goodness_of_fit <- chisq.test(c(pass = diundur_exp1_sen
 #' 
 #' ## *undurkan*
 #' 
+#' ### Corpus data for *undurkan*
 #' 
-## ----undurkan-sense-count------------------------------------------------------------------------------------
+## ----undurkan-sense-count-----------------------------------------------------------
 
 undurkan_sense_allvoice <- bind_rows(mengundurkan %>% select(node, voice, sense)) %>%
   bind_rows(diundurkan %>% select(node, voice, sense))
@@ -1026,9 +1050,9 @@ undurkan_sense_all_count <- undurkan_sense_allvoice_count %>%
 
 #' 
 #' 
-#' In contrast to the unsuffixed *undur*, the suffixed form *undurkan* predominantly convey the sense of 'cause someone to step down or resign' (`r pull(filter(undurkan_sense_all_count, sense=="step down; resign; bow out"), perc)`%; N=`r pull(filter(undurkan_sense_all_count, sense=="step down; resign; bow out"), n)`), followed by the 'postpone' sense (`r pull(filter(undurkan_sense_all_count, sense=="postpone"), perc)`%; N=`r pull(filter(undurkan_sense_all_count, sense=="postpone"), n)`). No literal, physical motion sense is found for *undurkan*. [Figure \@ref(fig:undurkan-sense-allvoice-plot)](#undurkan-sense-allvoice-plot) shows the distribution of these senses across voice.
+#' In contrast to the unsuffixed *undur*, the suffixed form *undurkan* predominantly convey the sense of 'cause someone to step down or resign' (`r pull(filter(undurkan_sense_all_count, sense=="step down; resign; bow out"), perc)`%; N=`r pull(filter(undurkan_sense_all_count, sense=="step down; resign; bow out"), n)`), followed by the 'postpone' sense (`r pull(filter(undurkan_sense_all_count, sense=="postpone"), perc)`%; N=`r pull(filter(undurkan_sense_all_count, sense=="postpone"), n)`). No literal, physical motion sense is found for *undurkan*. [Figure \@ref(fig:figure12-undurkan-sense-allvoice-plot)](#figure12-undurkan-sense-allvoice-plot) shows the distribution of these senses across voice.
 #' 
-## ----undurkan-sense-voice-chisq-fye, warning = FALSE, message = FALSE----------------------------------------
+## ----undurkan-sense-voice-chisq-fye, warning = FALSE, message = FALSE---------------
 undurkan_sense_voice_chisq <- undurkan_sense_allvoice_count %>% 
   filter(voice != "uv") %>% 
   select(-perc) %>% 
@@ -1047,7 +1071,7 @@ undurkan_sense_voice_fye <- undurkan_sense_allvoice_count %>%
   fisher.test()
 
 #' 
-## ----undurkan-sense-allvoice-plot, fig.cap = "Distribution of metaphoric senses of *undurkan* across AV and PASS."----
+## ----figure12-undurkan-sense-allvoice-plot, fig.cap = "Distribution of metaphoric senses of *undurkan* across AV and PASS."----
 # PERCENTAGES-------
 ## FIGURE 12 =================
 fig12 <- undurkan_sense_allvoice_count %>% 
@@ -1069,10 +1093,10 @@ fig12 <- undurkan_sense_allvoice_count %>%
 fig12
 
 #' 
-#' Comparing the observed with the expected frequencies of the senses across voice, 'postpone' occurs more frequently than expected in PASS and is relatively less frequent in AV over 'step down', which is more frequent than expected. This asymmetric distribution is highly significant (*p*~Fisher~ ~Exact;~ ~two-tailed~ `r if(undurkan_sense_voice_fye$p.value < 0.001) " < 0.001" else if(undurkan_sense_voice_fye$p.value < 0.01) " < 0.01" else if(undurkan_sense_voice_fye$p.value < 0.05) " < 0.05" else if(undurkan_sense_voice_fye$p.value >= 0.05) paste("=", round(undurkan_sense_voice_fye$p.value, 3))`) and demonstrates a highly strong effect (Cramér's *V*=`r undurkan_sense_cramer`). The fixed phrase *mengundurkan diri* 'to cause one's self to step back; resign' accounts for the high frequency of 'step down' in AV and this phrase has no PASS counterpart. The association plot in [Figure \@ref(fig:undurkan-sense-assocplot)](#undurkan-sense-assocplot) further emphasises the preference of 'postpone' in PASS and the dispreferences of 'postpone' in AV and 'step down' in PASS.  
+#' Comparing the observed with the expected frequencies of the senses across voice, 'postpone' occurs more frequently than expected in PASS and is relatively less frequent in AV over 'step down', which is more frequent than expected. This asymmetric distribution is highly significant (*p*~Fisher~ ~Exact;~ ~two-tailed~ `r if(undurkan_sense_voice_fye$p.value < 0.001) " < 0.001" else if(undurkan_sense_voice_fye$p.value < 0.01) " < 0.01" else if(undurkan_sense_voice_fye$p.value < 0.05) " < 0.05" else if(undurkan_sense_voice_fye$p.value >= 0.05) paste("=", round(undurkan_sense_voice_fye$p.value, 3))`) and demonstrates a highly strong effect (Cramér's *V*=`r undurkan_sense_cramer`). The fixed phrase *mengundurkan diri* 'to cause one's self to step back; resign' accounts for the high frequency of 'step down' in AV and this phrase has no PASS counterpart. The association plot in [Figure \@ref(fig:figure13-undurkan-sense-assocplot)](#figure13-undurkan-sense-assocplot) further emphasises the preference of 'postpone' in PASS and the dispreferences of 'postpone' in AV and 'step down' in PASS.  
 #' 
 #' 
-## ----undurkan-sense-assocplot, fig.cap = "Association plot between metaphoric senses of *undurkan* with AV and PASS."----
+## ----figure13-undurkan-sense-assocplot, fig.cap = "Association plot between metaphoric senses of *undurkan* with AV and PASS."----
 ## FIGURE 13 ==========
 names(dimnames(undurkan_sense_voice_chisq$observed)) <- c("Sense", "Voice")
 colnames(undurkan_sense_voice_chisq$observed) <- toupper(colnames(undurkan_sense_voice_chisq$observed))
@@ -1085,7 +1109,10 @@ colnames(undurkan_sense_voice_chisq$observed) <- toupper(colnames(undurkan_sense
 assoc(undurkan_sense_voice_chisq$observed, shade = TRUE, gp_labels = gpar(fontsize = 10), legend = legend_resbased(fontsize = 10.5))
 
 #' 
-## ----mengundurkan-diundurkan-exp-sense-plot, warning = FALSE, message = FALSE, fig.cap="Distribution of metaphoric senses of *undurkan* across AV and PASS from sentence-production experiment"----
+#' ### Experimental data for *undurkan*
+#' 
+#' 
+## ----figure14-mengundurkan-diundurkan-exp-sense-plot, warning = FALSE, message = FALSE, fig.cap="Distribution of metaphoric senses of *undurkan* across AV and PASS from sentence-production experiment"----
 
 undurkan_exp_sense_av_pass <- bind_rows(mengundurkan_exp1_sense_count,
                                        diundurkan_exp1_sense_count)
@@ -1104,9 +1131,11 @@ undurkan_exp_sense_av_pass_chisq <- undurkan_exp_sense_av_pass_plotdf %>%
   pivot_wider(-perc, names_from = voice, values_from = n, values_fill = 0L) %>% 
   column_to_rownames('sense') %>% 
   as.matrix() %>% 
-  chisq.test(correct = FALSE)
+  chisq.test()
 undurkan_exp_sense_av_pass_fye <- fisher.test(undurkan_exp_sense_av_pass_chisq$observed)
 undurkan_exp_sense_av_pass_cramer <- round(assocstats(undurkan_exp_sense_av_pass_chisq$observed)$cramer, 3)
+
+## FIGURE 14 ========
 
 fig14 <- undurkan_exp_sense_av_pass_plotdf %>% 
   ggplot(aes(x = toupper(voice), y = perc, fill = sense)) + 
@@ -1130,7 +1159,8 @@ fig14
 #' Distribution of senses across voice in experimental data mirrors that in the corpus and the distribution is statistically highly significant (*X*^2^=`r round(undurkan_exp_sense_av_pass_chisq$statistic, 2)`; *df*=`r undurkan_exp_sense_av_pass_chisq$parameter`; *p*~two-tailed~`r if(undurkan_exp_sense_av_pass_chisq$p.value < 0.001) " < 0.001" else if(undurkan_exp_sense_av_pass_chisq$p.value < 0.01) " < 0.01" else if(undurkan_exp_sense_av_pass_chisq$p.value < 0.05) " < 0.05" else if(undurkan_exp_sense_av_pass_chisq$p.value >= 0.05) paste("=", round(undurkan_exp_sense_av_pass_chisq$p.value, 3))`)^[For this experimental data, we use Chi-Square test since the distributional assumption is met (i.e. all expected frequencies are larger than five)] with a highly strong effect size (Cramér's *V*=`r undurkan_exp_sense_av_pass_cramer`). Sentence production data clearly show that speakers have strong representation of association between 'postpone' and PASS. It is argued that this is the entrenched form-meaning pairing speakers predominantly have for *undurkan*.
 #' 
 #' 
-## ----undurkan-exp-sense-assocplot, fig.cap = "Association plot between metaphoric senses of *undurkan* with AV and PASS from sentence-production experiment."----
+## ----figure15-undurkan-exp-sense-assocplot, fig.cap = "Association plot between metaphoric senses of *undurkan* with AV and PASS from sentence-production experiment."----
+## FIGURE 15 =====
 names(dimnames(undurkan_exp_sense_av_pass_chisq$observed)) <- c("Sense", "Voice")
 colnames(undurkan_exp_sense_av_pass_chisq$observed) <- toupper(colnames(undurkan_exp_sense_av_pass_chisq$observed))
 
@@ -1143,7 +1173,7 @@ assoc(undurkan_exp_sense_av_pass_chisq$observed, shade = TRUE, gp_labels = gpar(
 
 #' 
 #' 
-## ----parallelism-across-temporal-sense-----------------------------------------------------------------------
+## ----table3-parallelism-across-temporal-sense---------------------------------------
 ## TABLE 3 ==========
 obs_exp <- c(if_else(majukan_combined_av_pass_chisq0$observed["temporal", "pass"] > 
                        majukan_combined_av_pass_chisq0$expected["temporal", "pass"], 
@@ -1195,6 +1225,10 @@ parallelism_df <- tibble(temporal_sense, bases, datatype, obs_exp, signif, effsi
   mutate(signif_code = if_else(signif < 0.05, "*", "ns"),
          signif_code = if_else(signif < 0.01, "**", signif_code),
          signif_code = if_else(signif < 0.001, "***", signif_code),
+         pval_short = if_else(signif < 0.05, "*p* < 0.05", "*p* > 0.05"),
+         pval_short = if_else(signif < 0.01, "*p* < 0.01", pval_short),
+         pval_short = if_else(signif < 0.001, "*p* < 0.001", pval_short),
+         pval_short = if_else(signif > 0.1, "*p* > 0.1", pval_short),
          signif_test = if_else(is.na(effsize), "ChiSquare Goodness-of-Fit", "ChiSquare"),
          signif_test = replace(signif_test, bases == "undurkan" & datatype == "corpus", "FisherExact"),
          signif_test = replace(signif_test, bases == "mundurkan", "FisherExact"),
