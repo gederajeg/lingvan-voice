@@ -114,7 +114,7 @@ mengundurkan_exp <- readRDS("mengundurkan_exp.rds")
 mengundurkan_exp1 <- mengundurkan_exp %>% 
   filter(!sense %in% c("duplicate", "IRRELEVANT", "unclear"))
 
-# diundurkan_exp <- readRDS("diundurkan_exp.rds")
+diundurkan_exp <- readRDS("diundurkan_exp.rds")
 # diundurkan_exp1 <- diundurkan_exp %>% 
 #   filter(!sense %in% c("duplicate", "IRRELEVANT", "unclear")) %>% 
 #   slice_sample(n = 100)
@@ -1033,8 +1033,7 @@ The remaining `r nrow(filter(mengundur_exp1, str_detect(sense, "^others")))` met
 
 ```{r undurkan-sense-count}
 
-undurkan_sense_allvoice <- bind_rows(mengundurkan %>% select(node, voice, sense)) %>%
-  bind_rows(diundurkan %>% select(node, voice, sense))
+undurkan_sense_allvoice <- bind_rows(select(mengundurkan, node, voice, sense), select(diundurkan, node, voice, sense))
 
 undurkan_sense_allvoice_count <- undurkan_sense_allvoice %>% 
   count(voice, sense, sort = T) %>% 

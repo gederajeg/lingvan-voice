@@ -114,7 +114,7 @@ mengundurkan_exp <- readRDS("mengundurkan_exp.rds")
 mengundurkan_exp1 <- mengundurkan_exp %>% 
   filter(!sense %in% c("duplicate", "IRRELEVANT", "unclear"))
 
-# diundurkan_exp <- readRDS("diundurkan_exp.rds")
+diundurkan_exp <- readRDS("diundurkan_exp.rds")
 # diundurkan_exp1 <- diundurkan_exp %>% 
 #   filter(!sense %in% c("duplicate", "IRRELEVANT", "unclear")) %>% 
 #   slice_sample(n = 100)
@@ -314,8 +314,8 @@ majukan_combined_goodness_of_fit <- chisq.test(majukan_voice_count)
 ## ----figure1-majukan-voice-plot, fig.cap="Distribution of voice for the metaphoric usages of the base *majukan*"----
 # saving to computer
 ## FIGURE 1 ========
-fig1 <- majukan_voice_count %>% 
-  data.frame() %>% 
+majukan_voice_count_interim <- majukan_voice_count %>% data.frame()
+fig1 <- majukan_voice_count_interim %>% 
   rename(voice = Var1, n = Freq) %>% 
   mutate(voice = toupper(voice)) %>% 
   ggplot(aes(x = voice, y = n, fill = voice)) +
@@ -330,6 +330,7 @@ fig1 <- majukan_voice_count %>%
 
 # Uncomment (i.e. delete the hashtag) the following line to activate the code line to save the plot to computer
 # fig1 + ggsave("figs/figure-1.jpeg", width = 6, height = 5, dpi = 600)
+fig1
 
 majukan_voice_count %>% 
   data.frame() %>% 
@@ -369,11 +370,7 @@ majukan_combined_av_pass_assocstats <- majukan_combined_av_pass %>%
 #' Code for [Figure \@ref(fig:figure2-majukan-combined-av-pass-plot)](#figure2-majukan-combined-av-pass-plot).
 #' 
 ## ----figure2-majukan-combined-av-pass-plot, fig.cap="Distribution of metaphoric senses of *majukan* across AV and PASS"----
-majukan_combined_av_pass_count <- majukan_combined_av_pass %>% 
-  count(voice, sense) %>% 
-  group_by(voice) %>% 
-  mutate(perc = n/sum(n)*100) %>% 
-  ungroup()
+majukan_combined_av_pass_count <- majukan_combined_av_pass %>% count(voice, sense) %>% group_by(voice) %>% mutate(perc = n/sum(n)*100) %>% ungroup()
 
 # PERCENTAGES-----
 # saving to computer
@@ -474,12 +471,7 @@ majukan_exp_met_lit_by_word <- majukan_exp_meta_lit_sense %>%
 #' 
 ## ----figure4-majukan-exp-metaphoric-lit-sense-plot, fig.cap="Distribution of metaphoric and literal senses of *majukan* in AV and PASS (sentence-production)."----
 
-majukan_exp_sense_av_pass <- bind_rows(memajukan_exp1_sense_count,
-                                       dimajukan_exp1_sense_count,
-                                       select(filter(majukan_exp1_declarative_sense_count_by_voice, 
-                                                     voice == "av"), -voice)) %>% 
-  mutate(voice = "pass", 
-         voice = if_else(str_detect(node, "^di", negate = TRUE), "av", voice))
+majukan_exp_sense_av_pass <- bind_rows(memajukan_exp1_sense_count,dimajukan_exp1_sense_count, select(filter(majukan_exp1_declarative_sense_count_by_voice, voice == "av"), -voice)) %>% mutate(voice = "pass", voice = if_else(str_detect(node, "^di", negate = TRUE), "av", voice))
 
 majukan_exp_sense_av_pass_plotdf <- majukan_exp_sense_av_pass %>% 
   filter(node != "majukan") %>% 
@@ -640,20 +632,11 @@ mundurkan_met_lit_assocstats <- assocstats(mundurkan_met_lit_all_count_by_voice_
 
 # PERCENTAGES-----
 ## FIGURE 6 ===========
-fig6 <- mundurkan_met_lit_all_count_by_voice %>% 
-  mutate(voice = toupper(voice),
-         sense = as.character(sense), 
-         sense = replace(sense, sense=="temporal_postpone", 'postpone'), 
-         sense = factor(sense, levels = c("postpone", 
-                                          "withdraw s.o.", "change one's mind", 
-                                          "LIT. caused backward motion"))) %>% 
-  ggplot(aes(x = voice, y = perc, fill = sense)) +
-  geom_col(position = position_dodge(.9)) +
-  # scale_fill_brewer(palette = "PuBu", type = "qual", direction = -1) + 
-  scale_fill_manual(values = c(RColorBrewer::brewer.pal(9, "YlGnBu")[7], 
-                               RColorBrewer::brewer.pal(9, "YlGnBu")[4], 
-                               RColorBrewer::brewer.pal(9, "YlGnBu")[2],
-                               RColorBrewer::brewer.pal(9, "YlGnBu")[1])) +
+fig6_df <- mundurkan_met_lit_all_count_by_voice %>% mutate(voice = toupper(voice), sense = as.character(sense), sense = replace(sense, sense=="temporal_postpone", 'postpone'), sense = factor(sense, levels = c("postpone", "withdraw s.o.", "change one's mind", "LIT. caused backward motion")))
+fig6 <- fig6_df %>% 
+  ggplot(aes(x = voice, y = perc, fill = sense)) + 
+  geom_col(position = position_dodge(.9)) + 
+  scale_fill_manual(values = c(RColorBrewer::brewer.pal(9, "YlGnBu")[7], RColorBrewer::brewer.pal(9, "YlGnBu")[4], RColorBrewer::brewer.pal(9, "YlGnBu")[2], RColorBrewer::brewer.pal(9, "YlGnBu")[1])) +
   theme_bw() + 
   theme(legend.position = "top") +
   geom_text(aes(label = paste("N=", n, sep = "")), 
@@ -1033,8 +1016,7 @@ undur_sense_allvoice_exp_goodness_of_fit <- chisq.test(c(pass = diundur_exp1_sen
 #' 
 ## ----undurkan-sense-count-----------------------------------------------------------
 
-undurkan_sense_allvoice <- bind_rows(mengundurkan %>% select(node, voice, sense)) %>%
-  bind_rows(diundurkan %>% select(node, voice, sense))
+undurkan_sense_allvoice <- bind_rows(select(mengundurkan, node, voice, sense), select(diundurkan, node, voice, sense))
 
 undurkan_sense_allvoice_count <- undurkan_sense_allvoice %>% 
   count(voice, sense, sort = T) %>% 
@@ -1184,9 +1166,7 @@ obs_exp <- c(if_else(majukan_combined_av_pass_chisq0$observed["temporal", "pass"
              if_else(mundurkan_met_lit_all_chisq$observed["temporal_postpone", "pass"] > 
                        mundurkan_met_lit_all_chisq$expected["temporal_postpone", "pass"],
                     "PASS > AV", "PASS < AV"),
-             if_else(mundurkan_exp_met_lit_sense_av_pass_chisq$observed["postpone", "pass"] > 
-                       mundurkan_exp_met_lit_sense_av_pass_chisq$expected["postpone", "pass"],
-                     "PASS > AV", "PASS < AV"),
+             if_else(mundurkan_exp_met_lit_sense_av_pass_chisq$observed["postpone", "pass"] >  mundurkan_exp_met_lit_sense_av_pass_chisq$expected["postpone", "pass"], "PASS > AV", "PASS < AV"),
              if_else(undur_senses_allvoice_goodness_of_fit$observed[names(undur_senses_allvoice_goodness_of_fit$observed) == "pass"] > 
                        undur_senses_allvoice_goodness_of_fit$expected[names(undur_senses_allvoice_goodness_of_fit$expected) == "pass"],
                      "PASS > AV", "PASS < AV"),
