@@ -1,5 +1,5 @@
 Supplementary materials for *Corpus linguistic and experimental studies
-on meaning-preserving hypothesis in Indonesian voice alternation*
+on the meaning-preserving hypothesis in Indonesian voice alternations*
 ================
 *by* [I Made
 Rajeg](https://udayananetworking.unud.ac.id/lecturer/1817-i-made-rajeg)
@@ -32,9 +32,9 @@ Linguistics) ([Rajeg, Rajeg & Arka
     Vanguard*](https://www.degruyter.com/journal/key/LINGVAN/html)
 
 -   Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021.
-    Supplementary materials for “Corpus linguistic and experimental
-    studies on meaning-preserving hypothesis in Indonesian voice
-    alternation.” Open Science Framework. doi:
+    Supplementary materials for *Corpus linguistic and experimental
+    studies on the meaning-preserving hypothesis in Indonesian voice
+    alternations*. Open Science Framework. doi:
     [10.17605/OSF.IO/QF38H](https://doi.org/10.17605/OSF.IO/QF38H).
     [osf.io/qf38h](https://osf.io/qf38h/).
 
@@ -99,8 +99,8 @@ CSLI Publications.
 
 Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021.
 Supplementary materials for "Corpus linguistic and experimental studies
-on meaning-preserving hypothesis in Indonesian voice alternation". Open
-Science Framework.
+on the meaning-preserving hypothesis in Indonesian voice alternations".
+Open Science Framework.
 doi:[10.17605/OSF.IO/QF38H](https://doi.org/10.17605/OSF.IO/QF38H).
 <https://osf.io/qf38h/>.
 

@@ -1,6 +1,6 @@
 ---
 output: github_document
-title: "Supplementary materials for *Corpus linguistic and experimental studies on meaning-preserving hypothesis in Indonesian voice alternation*"
+title: "Supplementary materials for *Corpus linguistic and experimental studies on the meaning-preserving hypothesis in Indonesian voice alternations*"
 author: '*by* [I Made Rajeg](https://udayananetworking.unud.ac.id/lecturer/1817-i-made-rajeg) <a itemprop="sameAs" content="https://orcid.org/0000-0001-8989-0203" href="https://orcid.org/0000-0001-8989-0203" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>, [Gede Primahadi Wijaya Rajeg](https://udayananetworking.unud.ac.id/lecturer/880-gede-primahadi-wijaya-rajeg) <a itemprop="sameAs" content="https://orcid.org/0000-0002-2047-8621" href="https://orcid.org/0000-0002-2047-8621" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>, [I Wayan Arka](https://researchers.anu.edu.au/researchers/arka-iww) <a itemprop="sameAs" content="https://orcid.org/0000-0002-2819-6186" href="https://orcid.org/0000-0002-2819-6186" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>'
 link-citations: yes
 bibliography: reference.bib
@@ -28,7 +28,7 @@ Please cite this repository as follows (in Unified Style Sheet for Linguistics) 
 
 - to be filled with the citation of the paper to appear in [*Linguistics Vanguard*](https://www.degruyter.com/journal/key/LINGVAN/html)
 
-- Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021. Supplementary materials for “Corpus linguistic and experimental studies on meaning-preserving hypothesis in Indonesian voice alternation.” Open Science Framework. doi: [10.17605/OSF.IO/QF38H](https://doi.org/10.17605/OSF.IO/QF38H). [osf.io/qf38h](https://osf.io/qf38h/).
+- Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021. Supplementary materials for *Corpus linguistic and experimental studies on the meaning-preserving hypothesis in Indonesian voice alternations*. Open Science Framework. doi: [10.17605/OSF.IO/QF38H](https://doi.org/10.17605/OSF.IO/QF38H). [osf.io/qf38h](https://osf.io/qf38h/).
 
 # Preface
 
