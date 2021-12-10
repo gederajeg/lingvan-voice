@@ -92,7 +92,7 @@ Corpus-based approach meets LFG: The puzzling case of voice alternations
 of *Kena*-verbs in Indonesian. In Miriam Butt & Ida Toivonen (eds.),
 *Proceedings of the LFG’20 conference, on-line*, 307–327. Stanford, CA:
 CSLI Publications.
-<http://cslipublications.stanford.edu/LFG/2020/lfg2020-rra.pdf>.
+<https://web.stanford.edu/group/cslipublications/cslipublications/LFG/LFG-2020/abstr-rra.shtml>.
 
 </div>
 
