@@ -24,9 +24,9 @@ knitr::opts_chunk$set(
 
 # How to cite this repository
 
-Please cite this repository as follows (in Unified Style Sheet for Linguistics) [@rajeg_supplementary_2021]:
+Please cite this repository [@rajeg_supplementary_2021] and the paper [@rajeg_corpus_2022] as follows (in Unified Style Sheet for Linguistics):
 
-- to be filled with the citation of the paper to appear in [*Linguistics Vanguard*](https://www.degruyter.com/journal/key/LINGVAN/html)
+- Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2022. Corpus linguistic and experimental studies on the meaning-preserving hypothesis in Indonesian voice alternations. [*Linguistics Vanguard*](https://www.degruyter.com/journal/key/lingvan/html) 8(1). 1–16. https://doi.org/10.1515/lingvan-2020-0104.
 
 - Rajeg, I Made, Gede Primahadi Wijaya Rajeg & I Wayan Arka. 2021. Supplementary materials for *Corpus linguistic and experimental studies on the meaning-preserving hypothesis in Indonesian voice alternations*. Open Science Framework. doi: [10.17605/OSF.IO/QF38H](https://doi.org/10.17605/OSF.IO/QF38H). [osf.io/qf38h](https://osf.io/qf38h/).
 
